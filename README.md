@@ -1,4 +1,6 @@
 KKMessagesViewController
 ========================
 
-MessagesViewController like sms app, kakaotalk app
+MessagesViewController is based http://jessesquires.github.io/MessagesTableViewController/
+
+required SDK5.0 with ARC
