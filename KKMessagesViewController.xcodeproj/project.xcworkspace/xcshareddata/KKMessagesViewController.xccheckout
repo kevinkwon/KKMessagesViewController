@@ -10,6 +10,8 @@
 	<string>KKMessagesViewController</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>2A0E8B6B-9A4E-4B05-A045-76A020F81168</key>
+		<string>https://github.com/kevinkwon/MessagesTableViewController.git</string>
 		<key>7C78746F-C37F-48ED-807E-7409DC442E50</key>
 		<string>https://github.com/kevinkwon/KKMessagesViewController.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>KKMessagesViewController/KKMessagesViewController.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>2A0E8B6B-9A4E-4B05-A045-76A020F81168</key>
+		<string>../../../MessagesTableViewController</string>
 		<key>7C78746F-C37F-48ED-807E-7409DC442E50</key>
 		<string>../../..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>7C78746F-C37F-48ED-807E-7409DC442E50</string>
 			<key>IDESourceControlWCCName</key>
 			<string>KKMessagesViewController</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2A0E8B6B-9A4E-4B05-A045-76A020F81168</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MessagesTableViewController</string>
 		</dict>
 	</array>
 </dict>

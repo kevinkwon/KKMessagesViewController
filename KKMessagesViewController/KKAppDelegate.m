@@ -7,6 +7,7 @@
 //
 
 #import "KKAppDelegate.h"
+#import "KKDemoViewController.h"
 
 @implementation KKAppDelegate
 
@@ -14,7 +15,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    KKDemoViewController *vc = [[KKDemoViewController alloc]initWithNibName:nil bundle:nil];
+    UINavigationController *nc = [[UINavigationController alloc]initWithRootViewController:vc];
+    self.window.rootViewController = nc;
     [self.window makeKeyAndVisible];
     return YES;
 }
