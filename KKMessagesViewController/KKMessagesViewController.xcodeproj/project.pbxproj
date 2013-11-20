@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C8094AA183C882700491E89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8094A9183C882700491E89 /* Foundation.framework */; };
+		9C8094AC183C882700491E89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8094AB183C882700491E89 /* CoreGraphics.framework */; };
+		9C8094AE183C882700491E89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8094AD183C882700491E89 /* UIKit.framework */; };
+		9C8094B4183C882700491E89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C8094B2183C882700491E89 /* InfoPlist.strings */; };
+		9C8094B6183C882700491E89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8094B5183C882700491E89 /* main.m */; };
+		9C8094BA183C882700491E89 /* KKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8094B9183C882700491E89 /* KKAppDelegate.m */; };
+		9C8094BC183C882700491E89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8094BB183C882700491E89 /* Images.xcassets */; };
+		9C8094C3183C882800491E89 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8094C2183C882800491E89 /* XCTest.framework */; };
+		9C8094C4183C882800491E89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8094A9183C882700491E89 /* Foundation.framework */; };
+		9C8094C5183C882800491E89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8094AD183C882700491E89 /* UIKit.framework */; };
+		9C8094CD183C882800491E89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C8094CB183C882800491E89 /* InfoPlist.strings */; };
+		9C8094CF183C882800491E89 /* KKMessagesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8094CE183C882800491E89 /* KKMessagesViewControllerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C8094C6183C882800491E89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C80949E183C882700491E89 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C8094A5183C882700491E89;
+			remoteInfo = KKMessagesViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9C8094A6183C882700491E89 /* KKMessagesViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KKMessagesViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8094A9183C882700491E89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9C8094AB183C882700491E89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9C8094AD183C882700491E89 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9C8094B1183C882700491E89 /* KKMessagesViewController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KKMessagesViewController-Info.plist"; sourceTree = "<group>"; };
+		9C8094B3183C882700491E89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9C8094B5183C882700491E89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9C8094B7183C882700491E89 /* KKMessagesViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KKMessagesViewController-Prefix.pch"; sourceTree = "<group>"; };
+		9C8094B8183C882700491E89 /* KKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKAppDelegate.h; sourceTree = "<group>"; };
+		9C8094B9183C882700491E89 /* KKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKAppDelegate.m; sourceTree = "<group>"; };
+		9C8094BB183C882700491E89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9C8094C1183C882800491E89 /* KKMessagesViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KKMessagesViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8094C2183C882800491E89 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9C8094CA183C882800491E89 /* KKMessagesViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KKMessagesViewControllerTests-Info.plist"; sourceTree = "<group>"; };
+		9C8094CC183C882800491E89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9C8094CE183C882800491E89 /* KKMessagesViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKMessagesViewControllerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C8094A3183C882700491E89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8094AC183C882700491E89 /* CoreGraphics.framework in Frameworks */,
+				9C8094AE183C882700491E89 /* UIKit.framework in Frameworks */,
+				9C8094AA183C882700491E89 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8094BE183C882800491E89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8094C3183C882800491E89 /* XCTest.framework in Frameworks */,
+				9C8094C5183C882800491E89 /* UIKit.framework in Frameworks */,
+				9C8094C4183C882800491E89 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C80949D183C882700491E89 = {
+			isa = PBXGroup;
+			children = (
+				9C8094AF183C882700491E89 /* KKMessagesViewController */,
+				9C8094C8183C882800491E89 /* KKMessagesViewControllerTests */,
+				9C8094A8183C882700491E89 /* Frameworks */,
+				9C8094A7183C882700491E89 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9C8094A7183C882700491E89 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C8094A6183C882700491E89 /* KKMessagesViewController.app */,
+				9C8094C1183C882800491E89 /* KKMessagesViewControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C8094A8183C882700491E89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C8094A9183C882700491E89 /* Foundation.framework */,
+				9C8094AB183C882700491E89 /* CoreGraphics.framework */,
+				9C8094AD183C882700491E89 /* UIKit.framework */,
+				9C8094C2183C882800491E89 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C8094AF183C882700491E89 /* KKMessagesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9C8094B8183C882700491E89 /* KKAppDelegate.h */,
+				9C8094B9183C882700491E89 /* KKAppDelegate.m */,
+				9C8094BB183C882700491E89 /* Images.xcassets */,
+				9C8094B0183C882700491E89 /* Supporting Files */,
+			);
+			path = KKMessagesViewController;
+			sourceTree = "<group>";
+		};
+		9C8094B0183C882700491E89 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C8094B1183C882700491E89 /* KKMessagesViewController-Info.plist */,
+				9C8094B2183C882700491E89 /* InfoPlist.strings */,
+				9C8094B5183C882700491E89 /* main.m */,
+				9C8094B7183C882700491E89 /* KKMessagesViewController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C8094C8183C882800491E89 /* KKMessagesViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C8094CE183C882800491E89 /* KKMessagesViewControllerTests.m */,
+				9C8094C9183C882800491E89 /* Supporting Files */,
+			);
+			path = KKMessagesViewControllerTests;
+			sourceTree = "<group>";
+		};
+		9C8094C9183C882800491E89 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C8094CA183C882800491E89 /* KKMessagesViewControllerTests-Info.plist */,
+				9C8094CB183C882800491E89 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C8094A5183C882700491E89 /* KKMessagesViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8094D2183C882800491E89 /* Build configuration list for PBXNativeTarget "KKMessagesViewController" */;
+			buildPhases = (
+				9C8094A2183C882700491E89 /* Sources */,
+				9C8094A3183C882700491E89 /* Frameworks */,
+				9C8094A4183C882700491E89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KKMessagesViewController;
+			productName = KKMessagesViewController;
+			productReference = 9C8094A6183C882700491E89 /* KKMessagesViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9C8094C0183C882800491E89 /* KKMessagesViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8094D5183C882800491E89 /* Build configuration list for PBXNativeTarget "KKMessagesViewControllerTests" */;
+			buildPhases = (
+				9C8094BD183C882800491E89 /* Sources */,
+				9C8094BE183C882800491E89 /* Frameworks */,
+				9C8094BF183C882800491E89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C8094C7183C882800491E89 /* PBXTargetDependency */,
+			);
+			name = KKMessagesViewControllerTests;
+			productName = KKMessagesViewControllerTests;
+			productReference = 9C8094C1183C882800491E89 /* KKMessagesViewControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C80949E183C882700491E89 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KK;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Kevin Kwon";
+				TargetAttributes = {
+					9C8094C0183C882800491E89 = {
+						TestTargetID = 9C8094A5183C882700491E89;
+					};
+				};
+			};
+			buildConfigurationList = 9C8094A1183C882700491E89 /* Build configuration list for PBXProject "KKMessagesViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9C80949D183C882700491E89;
+			productRefGroup = 9C8094A7183C882700491E89 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C8094A5183C882700491E89 /* KKMessagesViewController */,
+				9C8094C0183C882800491E89 /* KKMessagesViewControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C8094A4183C882700491E89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8094B4183C882700491E89 /* InfoPlist.strings in Resources */,
+				9C8094BC183C882700491E89 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8094BF183C882800491E89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8094CD183C882800491E89 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C8094A2183C882700491E89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8094BA183C882700491E89 /* KKAppDelegate.m in Sources */,
+				9C8094B6183C882700491E89 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8094BD183C882800491E89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8094CF183C882800491E89 /* KKMessagesViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C8094C7183C882800491E89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C8094A5183C882700491E89 /* KKMessagesViewController */;
+			targetProxy = 9C8094C6183C882800491E89 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9C8094B2183C882700491E89 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C8094B3183C882700491E89 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9C8094CB183C882800491E89 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C8094CC183C882800491E89 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9C8094D0183C882800491E89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C8094D1183C882800491E89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C8094D3183C882800491E89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KKMessagesViewController/KKMessagesViewController-Prefix.pch";
+				INFOPLIST_FILE = "KKMessagesViewController/KKMessagesViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9C8094D4183C882800491E89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KKMessagesViewController/KKMessagesViewController-Prefix.pch";
+				INFOPLIST_FILE = "KKMessagesViewController/KKMessagesViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9C8094D6183C882800491E89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KKMessagesViewController.app/KKMessagesViewController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KKMessagesViewController/KKMessagesViewController-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "KKMessagesViewControllerTests/KKMessagesViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9C8094D7183C882800491E89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KKMessagesViewController.app/KKMessagesViewController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KKMessagesViewController/KKMessagesViewController-Prefix.pch";
+				INFOPLIST_FILE = "KKMessagesViewControllerTests/KKMessagesViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C8094A1183C882700491E89 /* Build configuration list for PBXProject "KKMessagesViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8094D0183C882800491E89 /* Debug */,
+				9C8094D1183C882800491E89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C8094D2183C882800491E89 /* Build configuration list for PBXNativeTarget "KKMessagesViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8094D3183C882800491E89 /* Debug */,
+				9C8094D4183C882800491E89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9C8094D5183C882800491E89 /* Build configuration list for PBXNativeTarget "KKMessagesViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8094D6183C882800491E89 /* Debug */,
+				9C8094D7183C882800491E89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C80949E183C882700491E89 /* Project object */;
+}
