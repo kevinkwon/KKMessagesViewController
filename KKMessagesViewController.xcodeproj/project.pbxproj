@@ -19,6 +19,7 @@
 		9C8094C5183C882800491E89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8094AD183C882700491E89 /* UIKit.framework */; };
 		9C8094CD183C882800491E89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C8094CB183C882800491E89 /* InfoPlist.strings */; };
 		9C8094CF183C882800491E89 /* KKMessagesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8094CE183C882800491E89 /* KKMessagesViewControllerTests.m */; };
+		9C8094DA183C8DBA00491E89 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8094D9183C8DBA00491E89 /* DemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		9C8094CA183C882800491E89 /* KKMessagesViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KKMessagesViewControllerTests-Info.plist"; sourceTree = "<group>"; };
 		9C8094CC183C882800491E89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9C8094CE183C882800491E89 /* KKMessagesViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKMessagesViewControllerTests.m; sourceTree = "<group>"; };
+		9C8094D8183C8DBA00491E89 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		9C8094D9183C8DBA00491E89 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				9C8094B9183C882700491E89 /* KKAppDelegate.m */,
 				9C8094BB183C882700491E89 /* Images.xcassets */,
 				9C8094B0183C882700491E89 /* Supporting Files */,
+				9C8094D8183C8DBA00491E89 /* DemoViewController.h */,
+				9C8094D9183C8DBA00491E89 /* DemoViewController.m */,
 			);
 			path = KKMessagesViewController;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C8094DA183C8DBA00491E89 /* DemoViewController.m in Sources */,
 				9C8094BA183C882700491E89 /* KKAppDelegate.m in Sources */,
 				9C8094B6183C882700491E89 /* main.m in Sources */,
 			);
@@ -444,6 +450,7 @@
 				9C8094D4183C882800491E89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C8094D5183C882800491E89 /* Build configuration list for PBXNativeTarget "KKMessagesViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +459,7 @@
 				9C8094D7183C882800491E89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
