@@ -12,9 +12,9 @@
 //  http://opensource.org/licenses/MIT
 //
 
-#import "KKMessagesViewController.h"
+#import "JSMessagesViewController.h"
 
-@interface KKDemoViewController : KKMessagesViewController <KKMessagesViewDataSource, KKMessagesViewDelegate>
+@interface KKDemoViewController : JSMessagesViewController <JSMessagesViewDataSource, JSMessagesViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
