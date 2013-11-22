@@ -81,6 +81,7 @@
 		9C5751B1183F471C00CA6239 /* message-sent.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 9C575176183F471C00CA6239 /* message-sent.aiff */; };
 		9C5751B3183F477C00CA6239 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5751B2183F477C00CA6239 /* QuartzCore.framework */; };
 		9C5751B5183F478200CA6239 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5751B4183F478200CA6239 /* AudioToolbox.framework */; };
+		9C5751B8183F4AF700CA6239 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5751B7183F4AF700CA6239 /* DemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +187,8 @@
 		9C575176183F471C00CA6239 /* message-sent.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "message-sent.aiff"; sourceTree = "<group>"; };
 		9C5751B2183F477C00CA6239 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9C5751B4183F478200CA6239 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9C5751B6183F4AF700CA6239 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		9C5751B7183F4AF700CA6239 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +260,8 @@
 				9C5750FB183F463700CA6239 /* AppDelegate.m */,
 				9C5750FD183F463700CA6239 /* Images.xcassets */,
 				9C5750F2183F463700CA6239 /* Supporting Files */,
+				9C5751B6183F4AF700CA6239 /* DemoViewController.h */,
+				9C5751B7183F4AF700CA6239 /* DemoViewController.m */,
 			);
 			path = KKMessagesDemo;
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 				9C575183183F471C00CA6239 /* JSMessageTextView.m in Sources */,
 				9C57517D183F471C00CA6239 /* JSBubbleMessageCell.m in Sources */,
 				9C575180183F471C00CA6239 /* JSMessageInputView.m in Sources */,
+				9C5751B8183F4AF700CA6239 /* DemoViewController.m in Sources */,
 				9C57517B183F471C00CA6239 /* JSAvatarImageFactory.m in Sources */,
 				9C57517F183F471C00CA6239 /* JSDismissiveTextView.m in Sources */,
 				9C57517E183F471C00CA6239 /* JSBubbleView.m in Sources */,

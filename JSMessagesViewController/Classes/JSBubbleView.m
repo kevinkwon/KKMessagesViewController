@@ -191,15 +191,15 @@
                          [txt js_numberOfLines]) * [JSMessageInputView textViewLineHeight];
     maxHeight += kJSAvatarImageSize;
     
-    CGSize size = [txt sizeTextViewWithFont:self.textView.font constrainedToSize:CGSizeMake(maxWidth, CGFLOAT_MAX)];
-    //    return [txt sizeWithFont:self.textView.font
-    //           constrainedToSize:CGSizeMake(maxWidth, maxHeight)];
+//    CGSize size = [txt sizeTextViewWithFont:self.textView.font constrainedToSize:CGSizeMake(maxWidth, CGFLOAT_MAX)];
+    return [txt sizeWithFont:self.textView.font
+           constrainedToSize:CGSizeMake(maxWidth, maxHeight)];
 
-    NSLog(@"text : %@", txt);
-    NSLog(@"text size : %@", NSStringFromCGSize(size));
-    self.textView.layer.borderColor = [[UIColor greenColor]CGColor];
-    self.textView.layer.borderWidth = 1;
-    return [txt sizeTextViewWithFont:self.textView.font constrainedToSize:CGSizeMake(maxWidth, CGFLOAT_MAX)];
+//    NSLog(@"text : %@", txt);
+//    NSLog(@"text size : %@", NSStringFromCGSize(size));
+//    self.textView.layer.borderColor = [[UIColor greenColor]CGColor];
+//    self.textView.layer.borderWidth = 1;
+//    return size;
 }
 
 - (CGSize)bubbleSizeForText:(NSString *)txt
