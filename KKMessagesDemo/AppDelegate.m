@@ -1,23 +1,20 @@
 //
-//  KKAppDelegate.m
-//  JSMessagesViewController
+//  AppDelegate.m
+//  KKMessagesDemo
 //
-//  Created by Kevin on 2013. 11. 20..
+//  Created by Kevin on 2013. 11. 22..
 //  Copyright (c) 2013년 Kevin Kwon. All rights reserved.
 //
 
-#import "KKAppDelegate.h"
-#import "KKDemoViewController.h"
+#import "AppDelegate.h"
 
-@implementation KKAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    KKDemoViewController *vc = [[KKDemoViewController alloc]initWithNibName:nil bundle:nil];
-    UINavigationController *nc = [[UINavigationController alloc]initWithRootViewController:vc];
-    self.window.rootViewController = nc;
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

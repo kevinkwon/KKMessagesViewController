@@ -25,29 +25,29 @@
  *  @see JSBubbleView. 
  *  @see JSBubbleMessageType.
  */
-@property (weak, nonatomic) JSBubbleView *bubbleView;
+@property (weak, nonatomic, readonly) JSBubbleView *bubbleView;
 
 /**
  *  Returns the label used to display the timestamp for the cell. This property may be `nil` if no timestamp is provided. 
  *  @see JSMessagesViewDataSource.
  */
-@property (weak, nonatomic) UILabel *timestampLabel;
+@property (weak, nonatomic, readonly) UILabel *timestampLabel;
 
 /**
  *  Returns the image view used to display the avatar for the cell. This property may be `nil` if no avatar is provided. 
  *  @see JSMessagesViewDataSource.
  */
-@property (weak, nonatomic) UIImageView *avatarImageView;
+@property (weak, nonatomic, readonly) UIImageView *avatarImageView;
 
 /**
  *  Returns the label used to display the subtitle for the cell. This property may be `nil` if no subtitle is provided. 
  *  @see JSMessagesViewDataSource.
  */
-@property (weak, nonatomic) UILabel *subtitleLabel;
+@property (weak, nonatomic, readonly) UILabel *subtitleLabel;
 
-@property (weak, nonatomic) UILabel *timeLabel;
+@property (weak, nonatomic, readonly) UILabel *timeLabel;
 
-@property (weak, nonatomic) UILabel *nameLabel;
+@property (weak, nonatomic, readonly) UILabel *nameLabel;
 
 #pragma mark - Initialization
 

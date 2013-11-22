@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9C8094A5183C882700491E89"
-               BuildableName = "KKMessagesViewController.app"
-               BlueprintName = "KKMessagesViewController"
-               ReferencedContainer = "container:KKMessagesViewController.xcodeproj">
+               BlueprintIdentifier = "9C5750E7183F463700CA6239"
+               BuildableName = "KKMessagesDemo.app"
+               BlueprintName = "KKMessagesDemo"
+               ReferencedContainer = "container:KKMessagesDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9C8094C0183C882800491E89"
-               BuildableName = "KKMessagesViewControllerTests.xctest"
-               BlueprintName = "KKMessagesViewControllerTests"
-               ReferencedContainer = "container:KKMessagesViewController.xcodeproj">
+               BlueprintIdentifier = "9C575102183F463700CA6239"
+               BuildableName = "KKMessagesDemoTests.xctest"
+               BlueprintName = "KKMessagesDemoTests"
+               ReferencedContainer = "container:KKMessagesDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9C8094A5183C882700491E89"
-            BuildableName = "KKMessagesViewController.app"
-            BlueprintName = "KKMessagesViewController"
-            ReferencedContainer = "container:KKMessagesViewController.xcodeproj">
+            BlueprintIdentifier = "9C5750E7183F463700CA6239"
+            BuildableName = "KKMessagesDemo.app"
+            BlueprintName = "KKMessagesDemo"
+            ReferencedContainer = "container:KKMessagesDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9C8094A5183C882700491E89"
-            BuildableName = "KKMessagesViewController.app"
-            BlueprintName = "KKMessagesViewController"
-            ReferencedContainer = "container:KKMessagesViewController.xcodeproj">
+            BlueprintIdentifier = "9C5750E7183F463700CA6239"
+            BuildableName = "KKMessagesDemo.app"
+            BlueprintName = "KKMessagesDemo"
+            ReferencedContainer = "container:KKMessagesDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9C8094A5183C882700491E89"
-            BuildableName = "KKMessagesViewController.app"
-            BlueprintName = "KKMessagesViewController"
-            ReferencedContainer = "container:KKMessagesViewController.xcodeproj">
+            BlueprintIdentifier = "9C5750E7183F463700CA6239"
+            BuildableName = "KKMessagesDemo.app"
+            BlueprintName = "KKMessagesDemo"
+            ReferencedContainer = "container:KKMessagesDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -18,6 +18,7 @@
 #import "JSAvatarImageFactory.h"
 #import "NSString+JSMessagesView.h"
 #import "NSString+KKMessageView.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define kMarginTop 8.0f
 #define kMarginBottom 4.0f

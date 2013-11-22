@@ -1,18 +1,18 @@
 //
-//  JSMessagesViewControllerTests.m
-//  JSMessagesViewControllerTests
+//  KKMessagesDemoTests.m
+//  KKMessagesDemoTests
 //
-//  Created by Kevin on 2013. 11. 20..
+//  Created by Kevin on 2013. 11. 22..
 //  Copyright (c) 2013년 Kevin Kwon. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface JSMessagesViewControllerTests : XCTestCase
+@interface KKMessagesDemoTests : XCTestCase
 
 @end
 
-@implementation JSMessagesViewControllerTests
+@implementation KKMessagesDemoTests
 
 - (void)setUp
 {

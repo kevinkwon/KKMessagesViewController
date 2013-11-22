@@ -16,6 +16,7 @@
 
 #import "JSAvatarImageFactory.h"
 #import "UIColor+JSMessagesView.h"
+#import <QuartzCore/QuartzCore.h>
 
 static const CGFloat kJSLabelPadding = 5.0f;
 static const CGFloat kJSTimeStampLabelHeight = 15.0f;
@@ -107,15 +108,15 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
     imageView.frame = CGRectMake(avatarX, avatarY, kJSAvatarImageSize, kJSAvatarImageSize);
     NSLog(@"type:%@, imageView : %@", type==JSBubbleMessageTypeOutgoing?@"나가는것":@"들어오는것", NSStringFromCGRect(imageView.frame));
     imageView.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin
-                                         | UIViewAutoresizingFlexibleLeftMargin
-                                         | UIViewAutoresizingFlexibleRightMargin);
+                                  | UIViewAutoresizingFlexibleLeftMargin
+                                  | UIViewAutoresizingFlexibleRightMargin);
     
     [self.contentView addSubview:imageView];
     _avatarImageView = imageView;
     
     imageView.layer.borderColor = [[UIColor redColor]CGColor];
     imageView.layer.borderWidth = 1;
-
+    
 }
 
 - (void)configureNameLabelForMessageType:(JSBubbleMessageType)type
@@ -181,9 +182,9 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
                                                         bubbleType:type
                                                    bubbleImageView:bubbleImageView];
     
-//    bubbleView.autoresizingMask = (UIViewAutoresizingFlexibleWidth
-//                                    | UIViewAutoresizingFlexibleHeight
-//                                    | UIViewAutoresizingFlexibleBottomMargin);
+    //    bubbleView.autoresizingMask = (UIViewAutoresizingFlexibleWidth
+    //                                    | UIViewAutoresizingFlexibleHeight
+    //                                    | UIViewAutoresizingFlexibleBottomMargin);
     
     [self.contentView addSubview:bubbleView];
     [self.contentView sendSubviewToBack:bubbleView];
