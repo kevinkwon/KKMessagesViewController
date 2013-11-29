@@ -20,6 +20,7 @@
 
 static const CGFloat kJSLabelPadding = 5.0f;
 static const CGFloat kJSTimeStampLabelHeight = 15.0f;
+static const CGFloat kJSNameLabelHeight = 15.0f;
 static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 
 
@@ -30,7 +31,6 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 - (void)configureAvatarImageView:(UIImageView *)imageView forMessageType:(JSBubbleMessageType)type;
 - (void)configureSubtitleLabelForMessageType:(JSBubbleMessageType)type;
 - (void)configureNameLabelForMessageType:(JSBubbleMessageType)type;
-- (void)configureTimeLabelForMessageType:(JSBubbleMessageType)type;
 
 - (void)configureWithType:(JSBubbleMessageType)type
           bubbleImageView:(UIImageView *)bubbleImageView
@@ -44,7 +44,6 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 - (void)handleMenuWillShowNotification:(NSNotification *)notification;
 
 @end
-
 
 
 @implementation JSBubbleMessageCell
@@ -69,6 +68,9 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
                                                                                              action:@selector(handleLongPressGesture:)];
     [recognizer setMinimumPressDuration:0.4f];
     [self addGestureRecognizer:recognizer];
+    
+    self.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+    self.layer.borderWidth = 1;
 }
 
 - (void)configureTimestampLabel
@@ -95,38 +97,58 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 
 - (void)configureAvatarImageView:(UIImageView *)imageView forMessageType:(JSBubbleMessageType)type
 {
-    CGFloat avatarX = 0.0f;
+    CGFloat avatarX = 0.5f;
     if(type == JSBubbleMessageTypeOutgoing) {
         avatarX = (self.contentView.frame.size.width - kJSAvatarImageSize);
     }
     
-    CGFloat avatarY = self.contentView.frame.size.height - kJSAvatarImageSize;
-    if(_subtitleLabel) {
-        avatarY -= kJSSubtitleLabelHeight;
+    CGFloat avatarY = 0.0f;
+    if(_timestampLabel) {
+        avatarY += CGRectGetMaxY(_timestampLabel.frame);
     }
     
     imageView.frame = CGRectMake(avatarX, avatarY, kJSAvatarImageSize, kJSAvatarImageSize);
-    NSLog(@"type:%@, imageView : %@", type==JSBubbleMessageTypeOutgoing?@"나가는것":@"들어오는것", NSStringFromCGRect(imageView.frame));
-    imageView.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin
-                                  | UIViewAutoresizingFlexibleLeftMargin
-                                  | UIViewAutoresizingFlexibleRightMargin);
+    imageView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin
+                                  | UIViewAutoresizingFlexibleRightMargin
+                                  | UIViewAutoresizingFlexibleBottomMargin);
     
     [self.contentView addSubview:imageView];
     _avatarImageView = imageView;
     
     imageView.layer.borderColor = [[UIColor redColor]CGColor];
     imageView.layer.borderWidth = 1;
-    
 }
 
 - (void)configureNameLabelForMessageType:(JSBubbleMessageType)type
 {
-    
-}
+    CGPoint offset = CGPointZero;
 
-- (void)configureTimeLabelForMessageType:(JSBubbleMessageType)type
-{
+    offset.x = kJSLabelPadding;
     
+    if(type == JSBubbleMessageTypeIncoming) {
+        if (self.avatarImageView) {
+            offset.x += CGRectGetWidth(self.avatarImageView.frame) + kJSLabelPadding;
+        }
+    }
+    
+    if (self.timestampLabel) {
+        offset.y = CGRectGetMaxY(self.timestampLabel.frame);
+    }
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(offset.x,
+                                                               offset.y,
+                                                               CGRectGetWidth(self.contentView.frame) - CGRectGetWidth(self.avatarImageView.frame) - (kJSLabelPadding * 2.0f),
+                                                               kJSNameLabelHeight)];
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = (type == JSBubbleMessageTypeOutgoing) ? NSTextAlignmentRight : NSTextAlignmentLeft;
+    label.textColor = [UIColor js_messagesTimestampColor_iOS6];
+    label.font = [UIFont systemFontOfSize:12.5f];
+    
+    [self.contentView addSubview:label];
+    _nameLabel = label;
+    _nameLabel.layer.borderWidth = 1;
+    _nameLabel.layer.borderColor = [[UIColor redColor]CGColor];
 }
 
 
@@ -141,6 +163,8 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
     
     [self.contentView addSubview:label];
     _subtitleLabel = label;
+    _subtitleLabel.layer.borderWidth = 1;
+    _subtitleLabel.layer.borderColor = [[UIColor redColor]CGColor];
 }
 
 - (void)configureWithType:(JSBubbleMessageType)type
@@ -149,21 +173,25 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
                    avatar:(BOOL)hasAvatar
 				 subtitle:(BOOL)hasSubtitle
 {
-    CGFloat bubbleY = 0.0f;
+    CGFloat bubbleY = 0.0f; // 버블뷰 offset
     CGFloat bubbleX = 0.0f;
     
     CGFloat offsetX = 0.0f;
     
-    if(hasTimestamp) {
+    // 타임스탬프 위치
+    if (hasTimestamp) {
         [self configureTimestampLabel];
-        bubbleY = 14.0f;
+        // 버블뷰는 Y는 타임스탬프 아래이다.
+        bubbleY = CGRectGetMaxY(_timestampLabel.frame);
     }
     
-    if(hasSubtitle) {
+    // 서브타이틀을 만든다.
+    if (hasSubtitle) {
 		[self configureSubtitleLabelForMessageType:type];
+        // 서브타이틀 위치는 layoutSubview에서 정리함
 	}
     
-    if(hasAvatar) {
+    if (hasAvatar) {
         offsetX = 4.0f;
         bubbleX = kJSAvatarImageSize;
         if(type == JSBubbleMessageTypeOutgoing) {
@@ -173,18 +201,21 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
         [self configureAvatarImageView:[[UIImageView alloc] init] forMessageType:type];
     }
     
+    // 이름은 무조건 들어감
+    [self configureNameLabelForMessageType:type];
+    bubbleY += kJSNameLabelHeight;
+    
     CGRect frame = CGRectMake(bubbleX - offsetX,
                               bubbleY,
                               self.contentView.frame.size.width - bubbleX,
-                              self.contentView.frame.size.height - _timestampLabel.frame.size.height - _subtitleLabel.frame.size.height);
+                              CGRectGetHeight(self.contentView.frame) - CGRectGetMaxY(_nameLabel.frame));
     
     JSBubbleView *bubbleView = [[JSBubbleView alloc] initWithFrame:frame
                                                         bubbleType:type
                                                    bubbleImageView:bubbleImageView];
     
-    //    bubbleView.autoresizingMask = (UIViewAutoresizingFlexibleWidth
-    //                                    | UIViewAutoresizingFlexibleHeight
-    //                                    | UIViewAutoresizingFlexibleBottomMargin);
+    bubbleView.autoresizingMask = (UIViewAutoresizingFlexibleWidth
+                                   | UIViewAutoresizingFlexibleHeight);
     
     [self.contentView addSubview:bubbleView];
     [self.contentView sendSubviewToBack:bubbleView];
@@ -219,7 +250,6 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
     _timestampLabel = nil;
     _avatarImageView = nil;
     _subtitleLabel = nil;
-    _timeLabel = nil;
     _nameLabel = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -258,9 +288,14 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 	self.subtitleLabel.text = subtitle;
 }
 
+- (void)setName:(NSString *)name
+{
+    self.nameLabel.text = name;
+}
+
 - (void)setTime:(NSString *)time
 {
-    self.timeLabel.text = time;
+    self.bubbleView.time = time;
 }
 
 #pragma mark - Getters

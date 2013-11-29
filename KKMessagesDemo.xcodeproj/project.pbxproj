@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FD1C2A318425A7700EFCAFA /* design.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD1C2A218425A7700EFCAFA /* design.xib */; };
 		9C5750EC183F463700CA6239 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5750EB183F463700CA6239 /* Foundation.framework */; };
 		9C5750EE183F463700CA6239 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5750ED183F463700CA6239 /* CoreGraphics.framework */; };
 		9C5750F0183F463700CA6239 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5750EF183F463700CA6239 /* UIKit.framework */; };
@@ -95,6 +96,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FD1C2A218425A7700EFCAFA /* design.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = design.xib; sourceTree = "<group>"; };
 		9C5750E8183F463700CA6239 /* KKMessagesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KKMessagesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5750EB183F463700CA6239 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9C5750ED183F463700CA6239 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -220,6 +222,7 @@
 		9C5750DF183F463700CA6239 = {
 			isa = PBXGroup;
 			children = (
+				4FD1C2A218425A7700EFCAFA /* design.xib */,
 				9C575122183F471C00CA6239 /* JSMessagesViewController */,
 				9C57511E183F471600CA6239 /* Category */,
 				9C5750F1183F463700CA6239 /* KKMessagesDemo */,
@@ -560,6 +563,7 @@
 				9C575193183F471C00CA6239 /* bubble-classic-square-blue@2x.png in Resources */,
 				9C5751A1183F471C00CA6239 /* bubble-tailless@2x.png in Resources */,
 				9C5750F6183F463700CA6239 /* InfoPlist.strings in Resources */,
+				4FD1C2A318425A7700EFCAFA /* design.xib in Resources */,
 				9C5751B0183F471C00CA6239 /* message-received.aiff in Resources */,
 				9C5751A2183F471C00CA6239 /* bubble.png in Resources */,
 				9C57511D183F471000CA6239 /* README.md in Resources */,

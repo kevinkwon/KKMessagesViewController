@@ -233,6 +233,7 @@
     }
     
     [cell setMessage:[self.dataSource textForRowAtIndexPath:indexPath]];
+    [cell setName:[self.dataSource nameForRowAtIndexPath:indexPath]];
     [cell setTime:[self.dataSource timeForRowAtIndexPath:indexPath]];
     [cell setBackgroundColor:tableView.backgroundColor];
     
@@ -241,6 +242,7 @@
     }
     
     [cell prepareForReuse];
+    
     return cell;
 }
 

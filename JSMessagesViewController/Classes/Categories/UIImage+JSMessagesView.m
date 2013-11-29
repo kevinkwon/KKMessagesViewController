@@ -25,8 +25,15 @@
 
 - (UIImage *)js_stretchableImageWithCapInsets:(UIEdgeInsets)capInsets
 {
-    return [self resizableImageWithCapInsets:capInsets
-                                resizingMode:UIImageResizingModeStretch];
+    // iOS6
+    if ([self respondsToSelector:@selector(resizableImageWithCapInsets:resizingMode:)]) {
+        return [self resizableImageWithCapInsets:capInsets
+                                    resizingMode:UIImageResizingModeStretch];
+    }
+    // iOS5
+    else {
+        return [self resizableImageWithCapInsets:capInsets];
+    }
 }
 
 - (UIImage *)js_imageAsCircle:(BOOL)clipToCircle

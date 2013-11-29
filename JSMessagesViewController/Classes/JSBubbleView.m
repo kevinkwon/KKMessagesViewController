@@ -20,16 +20,14 @@
 #import "NSString+KKMessageView.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define kMarginTop 8.0f
-#define kMarginBottom 4.0f
-#define kPaddingTop 4.0f
-#define kPaddingBottom 8.0f
+#define kMarginTop 0.0f
+#define kMarginBottom 0.0f
+#define kPaddingTop 0.0f
+#define kPaddingBottom 0.0f
 #define kBubblePaddingRight 35.0f
 
 
 @interface JSBubbleView()
-
-@property (weak, nonatomic) UITextView *textView;
 
 - (void)setup;
 
@@ -48,7 +46,7 @@
     self.backgroundColor = [UIColor clearColor];
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.layer.borderWidth = 1;
-    self.layer.borderColor = [[UIColor redColor]CGColor];
+    self.layer.borderColor = [[UIColor greenColor]CGColor];
 }
 
 #pragma mark - Initialization
@@ -100,6 +98,7 @@
 {
     _bubbleImageView = nil;
     _textView = nil;
+    _timeLabel = nil;
 }
 
 #pragma mark - Setters
@@ -115,6 +114,13 @@
     self.textView.text = text;
     [self setNeedsLayout];
 }
+
+- (void)setTime:(NSString *)time
+{
+    self.timeLabel.text = time;
+    [self setNeedsLayout];
+}
+
 
 - (void)setFont:(UIFont *)font
 {
@@ -187,19 +193,9 @@
 - (CGSize)textSizeForText:(NSString *)txt
 {
     CGFloat maxWidth = [UIScreen mainScreen].applicationFrame.size.width * 0.55f;
-    CGFloat maxHeight = MAX([JSMessageTextView numberOfLinesForMessage:txt],
-                         [txt js_numberOfLines]) * [JSMessageInputView textViewLineHeight];
-    maxHeight += kJSAvatarImageSize;
+    CGSize size = [txt sizeTextViewWithFont:self.textView.font constrainedToSize:CGSizeMake(maxWidth, CGFLOAT_MAX)];
     
-//    CGSize size = [txt sizeTextViewWithFont:self.textView.font constrainedToSize:CGSizeMake(maxWidth, CGFLOAT_MAX)];
-    return [txt sizeWithFont:self.textView.font
-           constrainedToSize:CGSizeMake(maxWidth, maxHeight)];
-
-//    NSLog(@"text : %@", txt);
-//    NSLog(@"text size : %@", NSStringFromCGSize(size));
-//    self.textView.layer.borderColor = [[UIColor greenColor]CGColor];
-//    self.textView.layer.borderWidth = 1;
-//    return size;
+    return size;
 }
 
 - (CGSize)bubbleSizeForText:(NSString *)txt

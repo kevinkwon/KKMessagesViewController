@@ -45,8 +45,6 @@
  */
 @property (weak, nonatomic, readonly) UILabel *subtitleLabel;
 
-@property (weak, nonatomic, readonly) UILabel *timeLabel;
-
 @property (weak, nonatomic, readonly) UILabel *nameLabel;
 
 #pragma mark - Initialization
@@ -99,6 +97,8 @@
  *  @param subtitle The subtitle text for the cell.
  */
 - (void)setSubtitle:(NSString *)subtitle;
+
+- (void)setName:(NSString *)name;
 
 - (void)setTime:(NSString *)time;
 

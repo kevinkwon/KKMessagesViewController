@@ -32,6 +32,10 @@
  */
 @property (weak, nonatomic, readonly) UIImageView *bubbleImageView;
 
+@property (weak, nonatomic) UITextView *textView;
+
+@property (weak, nonatomic) UILabel *timeLabel;
+
 #pragma mark - Initialization
 
 /**
@@ -70,6 +74,8 @@
  */
 - (void)setTextColor:(UIColor *)textColor;
 
+- (void)setTime:(NSString *)time;
+
 #pragma mark - Getters
 
 /**
@@ -100,5 +106,7 @@
  *  @return The minimum required value for the height of the bubble view.
  */
 - (CGFloat)neededHeightForCell;
+
+- (NSString *)time;
 
 @end

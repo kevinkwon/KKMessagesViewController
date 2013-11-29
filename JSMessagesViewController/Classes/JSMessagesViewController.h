@@ -225,9 +225,9 @@ typedef NS_ENUM(NSUInteger, JSMessagesViewSubtitlePolicy) {
  */
 - (NSString *)subtitleForRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (NSString *)timeForRowAtIndexPath:(NSIndexPath *)indexPath;
-
 - (NSString *)nameForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (NSString *)timeForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
