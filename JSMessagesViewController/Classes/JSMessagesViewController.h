@@ -124,6 +124,8 @@ typedef NS_ENUM(NSUInteger, JSMessagesViewSubtitlePolicy) {
 - (UIImageView *)bubbleImageViewWithType:(JSBubbleMessageType)type
                        forRowAtIndexPath:(NSIndexPath *)indexPath;
 
+- (UIButton *)buttonViewForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 /**
  *  Asks the delegate for the timestamp policy.
  *

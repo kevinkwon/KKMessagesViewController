@@ -36,7 +36,8 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
           bubbleImageView:(UIImageView *)bubbleImageView
                 timestamp:(BOOL)hasTimestamp
                    avatar:(BOOL)hasAvatar
-				 subtitle:(BOOL)hasSubtitle;
+				 subtitle:(BOOL)hasSubtitle
+               buttonView:(UIButton *)buttonView;
 
 - (void)handleLongPressGesture:(UILongPressGestureRecognizer *)longPress;
 
@@ -103,8 +104,8 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
     }
     
     CGFloat avatarY = 0.0f;
-    if(_timestampLabel) {
-        avatarY += CGRectGetMaxY(_timestampLabel.frame);
+    if(self.timestampLabel) {
+        avatarY += CGRectGetMaxY(self.timestampLabel.frame);
     }
     
     imageView.frame = CGRectMake(avatarX, avatarY, kJSAvatarImageSize, kJSAvatarImageSize);
@@ -121,9 +122,11 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 
 - (void)configureNameLabelForMessageType:(JSBubbleMessageType)type
 {
+    
     CGPoint offset = CGPointZero;
-
+    
     offset.x = kJSLabelPadding;
+    offset.y = kJSLabelPadding;
     
     if(type == JSBubbleMessageTypeIncoming) {
         if (self.avatarImageView) {
@@ -154,7 +157,10 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 
 - (void)configureSubtitleLabelForMessageType:(JSBubbleMessageType)type
 {
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(kJSLabelPadding,
+                                                               self.contentView.frame.size.height - kJSSubtitleLabelHeight,
+                                                               self.contentView.frame.size.width - (kJSLabelPadding * 2.0f),
+                                                               kJSSubtitleLabelHeight)];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = (type == JSBubbleMessageTypeOutgoing) ? NSTextAlignmentRight : NSTextAlignmentLeft;
@@ -172,50 +178,31 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
                 timestamp:(BOOL)hasTimestamp
                    avatar:(BOOL)hasAvatar
 				 subtitle:(BOOL)hasSubtitle
+               buttonView:(UIButton *)buttonView
 {
-    CGFloat bubbleY = 0.0f; // 버블뷰 offset
-    CGFloat bubbleX = 0.0f;
+    _type = type;
     
-    CGFloat offsetX = 0.0f;
-    
-    // 타임스탬프 위치
+    // 위치 정해짐
     if (hasTimestamp) {
         [self configureTimestampLabel];
-        // 버블뷰는 Y는 타임스탬프 아래이다.
-        bubbleY = CGRectGetMaxY(_timestampLabel.frame);
     }
     
     // 서브타이틀을 만든다.
     if (hasSubtitle) {
 		[self configureSubtitleLabelForMessageType:type];
-        // 서브타이틀 위치는 layoutSubview에서 정리함
 	}
     
     if (hasAvatar) {
-        offsetX = 4.0f;
-        bubbleX = kJSAvatarImageSize;
-        if(type == JSBubbleMessageTypeOutgoing) {
-            offsetX = kJSAvatarImageSize - 4.0f;
-        }
-        
         [self configureAvatarImageView:[[UIImageView alloc] init] forMessageType:type];
     }
     
     // 이름은 무조건 들어감
     [self configureNameLabelForMessageType:type];
-    bubbleY += kJSNameLabelHeight;
     
-    CGRect frame = CGRectMake(bubbleX - offsetX,
-                              bubbleY,
-                              self.contentView.frame.size.width - bubbleX,
-                              CGRectGetHeight(self.contentView.frame) - CGRectGetMaxY(_nameLabel.frame));
-    
-    JSBubbleView *bubbleView = [[JSBubbleView alloc] initWithFrame:frame
+    JSBubbleView *bubbleView = [[JSBubbleView alloc] initWithFrame:CGRectZero
                                                         bubbleType:type
-                                                   bubbleImageView:bubbleImageView];
-    
-    bubbleView.autoresizingMask = (UIViewAutoresizingFlexibleWidth
-                                   | UIViewAutoresizingFlexibleHeight);
+                                                   bubbleImageView:bubbleImageView
+                                                        buttonView:buttonView];
     
     [self.contentView addSubview:bubbleView];
     [self.contentView sendSubviewToBack:bubbleView];
@@ -223,12 +210,12 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 }
 
 #pragma mark - Initialization
-
 - (instancetype)initWithBubbleType:(JSBubbleMessageType)type
                    bubbleImageView:(UIImageView *)bubbleImageView
                       hasTimestamp:(BOOL)hasTimestamp
                          hasAvatar:(BOOL)hasAvatar
                        hasSubtitle:(BOOL)hasSubtitle
+                        buttonView:(UIButton *)buttonView
                    reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
@@ -239,7 +226,8 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
                 bubbleImageView:bubbleImageView
                       timestamp:hasTimestamp
                          avatar:hasAvatar
-                       subtitle:hasSubtitle];
+                       subtitle:hasSubtitle
+                     buttonView:buttonView];
     }
     return self;
 }
@@ -308,12 +296,15 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 - (CGFloat)height
 {
     CGFloat timestampHeight = (self.timestampLabel) ? kJSTimeStampLabelHeight : 0.0f;
+    CGFloat nameHeight = self.nameLabel ? CGRectGetHeight(self.nameLabel.frame) : 0.0f;
     CGFloat avatarHeight = (self.avatarImageView) ? kJSAvatarImageSize : 0.0f;
 	CGFloat subtitleHeight = self.subtitleLabel ? kJSSubtitleLabelHeight : 0.0f;
+
+    CGFloat subviewHeights = kJSLabelPadding + timestampHeight + nameHeight + subtitleHeight ;
     
-    CGFloat subviewHeights = timestampHeight + subtitleHeight + kJSLabelPadding;
-    
-    return subviewHeights + MAX(avatarHeight, [self.bubbleView neededHeightForCell]);
+    subviewHeights = subviewHeights + MAX(avatarHeight, [self.bubbleView neededHeightForCell]);
+
+    return subviewHeights;
 }
 
 #pragma mark - Layout
@@ -321,6 +312,29 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    CGFloat bubbleY = 0.0f; // 버블뷰 offset
+    CGFloat bubbleX = 0.0f;
+    
+    CGFloat offsetX = 0.0f;
+    
+    
+    bubbleY += CGRectGetMaxY(self.nameLabel.frame);
+    
+    if (self.avatarImageView) {
+        offsetX = 4.0f;
+        bubbleX = kJSAvatarImageSize;
+        if(self.type == JSBubbleMessageTypeOutgoing) {
+            offsetX = kJSAvatarImageSize - 4.0f;
+        }
+    }
+    
+    CGRect frame = CGRectMake(bubbleX - offsetX,
+                              bubbleY,
+                              self.contentView.frame.size.width - bubbleX,
+                              CGRectGetHeight(self.contentView.frame) - CGRectGetMaxY(_nameLabel.frame) - CGRectGetHeight(_subtitleLabel.frame));
+ 
+    self.bubbleView.frame = frame;
     
     if(self.subtitleLabel) {
         self.subtitleLabel.frame = CGRectMake(kJSLabelPadding,

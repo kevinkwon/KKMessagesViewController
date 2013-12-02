@@ -38,13 +38,13 @@
     
     self.messages = [[NSMutableArray alloc] initWithObjects:
                      @"JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다.JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다.",
-//                     @"It's highly customizable.",
-                     @"It even has data detectors. You can call me tonight. My cell number is 452-123-4567. \nMy website is www.hexedbits.com.",
+//                      @"It's highly customizable.",
+//                     @"It even has data detectors. You can call me tonight. My cell number is 452-123-4567. \nMy website is www.hexedbits.com.",
 //                     @"Group chat is possible. Sound effects and images included. Animations are smooth. Messages can be of arbitrary size!",
                      nil];
     
     self.timestamps = [[NSMutableArray alloc] initWithObjects:
-                       [NSDate distantPast],
+//                       [NSDate distantPast],
 //                       [NSDate distantPast],
 //                       [NSDate distantPast],
                        [NSDate date],
@@ -120,6 +120,13 @@
     return [JSBubbleImageViewFactory bubbleImageViewForType:type style:JSBubbleImageViewStyleClassicSquareGray];
 }
 
+- (UIButton *)buttonViewForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setTitle:@"testbutton" forState:UIControlStateNormal];
+    return button;
+}
+
 - (JSMessagesViewTimestampPolicy)timestampPolicy
 {
     return JSMessagesViewTimestampPolicyEveryThree;
@@ -132,6 +139,7 @@
 
 - (JSMessagesViewSubtitlePolicy)subtitlePolicy
 {
+//    return JSMessagesViewSubtitlePolicyNone;
     return JSMessagesViewSubtitlePolicyAll;
 }
 

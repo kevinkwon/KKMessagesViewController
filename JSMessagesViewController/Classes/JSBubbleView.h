@@ -49,7 +49,8 @@
  */
 - (instancetype)initWithFrame:(CGRect)frame
                    bubbleType:(JSBubbleMessageType)bubleType
-              bubbleImageView:(UIImageView *)bubbleImageView;
+              bubbleImageView:(UIImageView *)bubbleImageView
+                   buttonView:(UIButton *)buttonView;
 
 #pragma mark - Setters
 

@@ -203,6 +203,7 @@
     
     UIImageView *bubbleImageView = [self.delegate bubbleImageViewWithType:type
                                                         forRowAtIndexPath:indexPath];
+    UIButton *buttonView = [self.delegate buttonViewForRowAtIndexPath:indexPath];
     
     BOOL hasTimestamp = [self shouldHaveTimestampForRowAtIndexPath:indexPath];
     BOOL hasAvatar = [self shouldHaveAvatarForRowAtIndexPath:indexPath];
@@ -217,6 +218,7 @@
                                                   hasTimestamp:hasTimestamp
                                                      hasAvatar:hasAvatar
                                                    hasSubtitle:hasSubtitle
+                                                    buttonView:buttonView
                                                reuseIdentifier:CellIdentifier];
     }
     
