@@ -140,6 +140,8 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
     label.textAlignment = (type == JSBubbleMessageTypeOutgoing) ? NSTextAlignmentRight : NSTextAlignmentLeft;
     label.textColor = [UIColor js_messagesTimestampColor_iOS6];
     label.font = [UIFont systemFontOfSize:12.5f];
+    label.layer.borderColor = [[UIColor redColor]CGColor];
+    label.layer.borderWidth = 1;
     
     [self.contentView addSubview:label];
     _nameLabel = label;

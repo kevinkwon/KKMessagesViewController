@@ -21,7 +21,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 CGFloat const kMarginTop = 4.0f;
-CGFloat const kMarginBottom = 12.0f;
+CGFloat const kMarginBottom = 4.0f;
 CGFloat const kPaddingTop = 8.0f;
 CGFloat const kPaddingBottom = 12.0f;
 CGFloat const kBubblePaddingRight = 30.0f;
