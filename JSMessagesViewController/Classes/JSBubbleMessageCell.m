@@ -18,11 +18,10 @@
 #import "UIColor+JSMessagesView.h"
 #import <QuartzCore/QuartzCore.h>
 
-static const CGFloat kJSLabelPadding = 5.0f;
-static const CGFloat kJSTimeStampLabelHeight = 15.0f;
-static const CGFloat kJSNameLabelHeight = 15.0f;
-static const CGFloat kJSSubtitleLabelHeight = 15.0f;
-
+CGFloat const kJSLabelPadding = 5.0f;
+CGFloat const kJSTimeStampLabelHeight = 15.0f;
+CGFloat const kJSNameLabelHeight = 15.0f;
+CGFloat const kJSSubtitleLabelHeight = 15.0f;
 
 @interface JSBubbleMessageCell()
 
@@ -88,9 +87,6 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
     label.shadowOffset = CGSizeMake(0.0f, 1.0f);
     label.font = [UIFont boldSystemFontOfSize:12.0f];
     
-    label.layer.borderColor = [[UIColor redColor]CGColor];
-    label.layer.borderWidth = 1;
-    
     [self.contentView addSubview:label];
     [self.contentView bringSubviewToFront:label];
     _timestampLabel = label;
@@ -115,9 +111,6 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
     
     [self.contentView addSubview:imageView];
     _avatarImageView = imageView;
-    
-    imageView.layer.borderColor = [[UIColor redColor]CGColor];
-    imageView.layer.borderWidth = 1;
 }
 
 - (void)configureNameLabelForMessageType:(JSBubbleMessageType)type
@@ -126,7 +119,7 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
     CGPoint offset = CGPointZero;
     
     offset.x = kJSLabelPadding;
-    offset.y = kJSLabelPadding;
+    offset.y = 0.0f;
     
     if(type == JSBubbleMessageTypeIncoming) {
         if (self.avatarImageView) {
@@ -150,8 +143,6 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
     
     [self.contentView addSubview:label];
     _nameLabel = label;
-    _nameLabel.layer.borderWidth = 1;
-    _nameLabel.layer.borderColor = [[UIColor redColor]CGColor];
 }
 
 
@@ -298,11 +289,10 @@ static const CGFloat kJSSubtitleLabelHeight = 15.0f;
     CGFloat timestampHeight = (self.timestampLabel) ? kJSTimeStampLabelHeight : 0.0f;
     CGFloat nameHeight = self.nameLabel ? CGRectGetHeight(self.nameLabel.frame) : 0.0f;
     CGFloat avatarHeight = (self.avatarImageView) ? kJSAvatarImageSize : 0.0f;
-	CGFloat subtitleHeight = self.subtitleLabel ? kJSSubtitleLabelHeight : 0.0f;
 
-    CGFloat subviewHeights = kJSLabelPadding + timestampHeight + nameHeight + subtitleHeight ;
+    CGFloat subviewHeights = kJSLabelPadding + timestampHeight ;
     
-    subviewHeights = subviewHeights + MAX(avatarHeight, [self.bubbleView neededHeightForCell]);
+    subviewHeights = subviewHeights + MAX(avatarHeight, nameHeight + [self.bubbleView neededHeightForCell]);
 
     return subviewHeights;
 }

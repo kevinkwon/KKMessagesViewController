@@ -32,9 +32,11 @@
  */
 @property (weak, nonatomic, readonly) UIImageView *bubbleImageView;
 
-@property (weak, nonatomic) UITextView *textView;
+@property (weak, nonatomic) UILabel *textView;
 
 @property (weak, nonatomic) UILabel *timeLabel;
+
+@property (weak, nonatomic) UIButton *button;
 
 #pragma mark - Initialization
 

@@ -17,22 +17,27 @@
 #import "JSMessageInputView.h"
 #import "JSAvatarImageFactory.h"
 #import "NSString+JSMessagesView.h"
-#import "NSString+KKMessageView.h"
+#import "NSString+Size.h"
 #import <QuartzCore/QuartzCore.h>
 
-const CGFloat kMarginTop = 4.0f;
-const CGFloat kMarginBottom = 8.0f;
-const CGFloat kPaddingTop = 0.0f;
-const CGFloat kPaddingBottom = 0.0f;
-const CGFloat kBubblePaddingRight = 35.0f;
-
+CGFloat const kMarginTop = 4.0f;
+CGFloat const kMarginBottom = 12.0f;
+CGFloat const kPaddingTop = 8.0f;
+CGFloat const kPaddingBottom = 12.0f;
+CGFloat const kBubblePaddingRight = 30.0f;
+CGFloat const kButtonHeight = 33.0f; // 버튼 높이
+CGFloat const kKKPadding = 4.0f;
 
 @interface JSBubbleView()
+{
+    CGFloat _maxWidth;
+}
 
 - (void)setup;
 
 - (CGSize)textSizeForText:(NSString *)txt;
 - (CGSize)bubbleSizeForText:(NSString *)txt;
+- (CGSize)bubbleSizeForText:(NSString *)txt button:(UIButton *)button;
 
 @end
 
@@ -44,8 +49,8 @@ const CGFloat kBubblePaddingRight = 35.0f;
 - (void)setup
 {
     self.backgroundColor = [UIColor clearColor];
-    self.layer.borderWidth = 1;
     self.layer.borderColor = [[UIColor greenColor]CGColor];
+    self.layer.borderWidth = 1;
 }
 
 #pragma mark - Initialization
@@ -59,6 +64,8 @@ const CGFloat kBubblePaddingRight = 35.0f;
     if(self) {
         [self setup];
         
+        _maxWidth = [UIScreen mainScreen].applicationFrame.size.width * 0.50f;
+        
         _type = bubleType;
         
         bubbleImageView.userInteractionEnabled = YES;
@@ -67,28 +74,20 @@ const CGFloat kBubblePaddingRight = 35.0f;
         _bubbleImageView.layer.borderColor = [[UIColor blueColor]CGColor];
         _bubbleImageView.layer.borderWidth = 2;
         
-        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectZero];
+        UILabel *textView = [[UILabel alloc] initWithFrame:CGRectZero];
         textView.font = [UIFont systemFontOfSize:16.0f];
         textView.textColor = [UIColor blackColor];
-        textView.editable = NO;
         textView.userInteractionEnabled = YES;
-        textView.showsHorizontalScrollIndicator = NO;
-        textView.showsVerticalScrollIndicator = NO;
-        textView.scrollEnabled = NO;
+        textView.lineBreakMode = NSLineBreakByWordWrapping;
+        textView.numberOfLines= 0;
         textView.backgroundColor = [UIColor clearColor];
-        textView.contentInset = UIEdgeInsetsZero;
-        textView.scrollIndicatorInsets = UIEdgeInsetsZero;
-        textView.contentOffset = CGPointZero;
-        textView.dataDetectorTypes = UIDataDetectorTypeAll;
         [self addSubview:textView];
         [self bringSubviewToFront:textView];
         _textView = textView;
-        _textView.layer.borderWidth = 1;
-        _textView.layer.borderColor = [[UIColor grayColor]CGColor];
         
         if (buttonView) {
             [self addSubview:buttonView];
-            
+            _button = buttonView;
         }
         
 //        NOTE: TODO: textView frame & text inset
@@ -143,11 +142,22 @@ const CGFloat kBubblePaddingRight = 35.0f;
     [self setNeedsLayout];
 }
 
+- (void)setButton:(UIButton *)button
+{
+    _button = button;
+    [self setNeedsLayout];
+}
+
 #pragma mark - Getters
 
 - (NSString *)text
 {
     return self.textView.text;
+}
+
+- (NSString *)time
+{
+    return self.timeLabel.text;
 }
 
 - (UIFont *)font
@@ -162,19 +172,20 @@ const CGFloat kBubblePaddingRight = 35.0f;
 
 - (CGRect)bubbleFrame
 {
-    CGSize bubbleSize = [self bubbleSizeForText:self.textView.text];
+    CGSize bubbleSize = [self bubbleSizeForText:self.textView.text button:self.button];
     
     return CGRectMake((self.type == JSBubbleMessageTypeOutgoing ? self.frame.size.width - bubbleSize.width : 0.0f),
                       kMarginTop,
                       bubbleSize.width,
-                      bubbleSize.height + kMarginTop);
+                      bubbleSize.height);
 }
 
 // 셀에서 필요한 버블뷰 높이
 - (CGFloat)neededHeightForCell;
 {
     // 버블사이즈에 상단마진, 하단마진을 더한다.
-    return [self bubbleSizeForText:self.textView.text].height + kMarginTop + kMarginBottom;
+    CGFloat height = [self bubbleSizeForText:self.textView.text button:self.button].height + kMarginTop + kMarginBottom;
+    return height;
 }
 
 #pragma mark - Layout
@@ -185,28 +196,35 @@ const CGFloat kBubblePaddingRight = 35.0f;
     
     self.bubbleImageView.frame = [self bubbleFrame];
     
-    CGFloat textX = self.bubbleImageView.frame.origin.x;
+    CGFloat textX = self.bubbleImageView.frame.origin.x + 10;
     
     if(self.type == JSBubbleMessageTypeIncoming) {
         textX += (self.bubbleImageView.image.capInsets.left / 2.0f);
     }
     
-    CGRect textFrame = CGRectMake(textX,
-                                  self.bubbleImageView.frame.origin.y,
-                                  self.bubbleImageView.frame.size.width - (self.bubbleImageView.image.capInsets.right / 2.0f),
-                                  self.bubbleImageView.frame.size.height - kMarginTop);
     
+    CGSize textSize = [self textSizeForText:self.textView.text];
+    
+    CGRect textFrame = CGRectMake(textX,
+                                  CGRectGetMinY(self.bubbleImageView.frame) + kPaddingTop,
+                                  textSize.width,
+                                  textSize.height);
     self.textView.frame = textFrame;
+    
+    if (self.button) {
+        self.button.frame = CGRectMake(CGRectGetMinX(self.textView.frame),
+                                       CGRectGetMaxY(self.textView.frame) + kKKPadding,
+                                       self.bubbleImageView.frame.size.width - 30,
+                                       kButtonHeight);
+    }
 }
 
 #pragma mark - Bubble view
 
 - (CGSize)textSizeForText:(NSString *)txt
 {
-    CGFloat maxWidth = [UIScreen mainScreen].applicationFrame.size.width * 0.55f;
-    CGSize size = [txt sizeTextViewWithFont:self.textView.font constrainedToSize:CGSizeMake(maxWidth, CGFLOAT_MAX)];
-    NSLog(@"new Size : %@", NSStringFromCGSize(size));
-    
+    CGSize size = [txt boundingSize:CGSizeMake(_maxWidth, CGFLOAT_MAX) font:self.textView.font];
+
     return size;
 }
 
@@ -216,6 +234,18 @@ const CGFloat kBubblePaddingRight = 35.0f;
     
 	return CGSizeMake(textSize.width + kBubblePaddingRight,
                       textSize.height + kPaddingTop + kPaddingBottom);
+}
+
+- (CGSize)bubbleSizeForText:(NSString *)txt button:(UIButton *)button
+{
+    CGSize textSizeWithButton = [self bubbleSizeForText:txt];
+    
+    if (button) {
+        textSizeWithButton.width = _maxWidth;
+        textSizeWithButton.height += kKKPadding + kButtonHeight;
+    }
+    
+    return textSizeWithButton;
 }
 
 @end

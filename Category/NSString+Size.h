@@ -1,5 +1,5 @@
 //
-//  NSString+KKMessageView.h
+//  NSString+Size.h
 //  resizeTextView
 //
 //  Created by Kevin on 2013. 11. 21..
@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (KKMessageView)
+@interface NSString (Size)
 
 /**
  * Return size to fit given constraints size
+ * iOS7, iOS6, SDK6, SDK7
  */
-- (CGSize)sizeTextViewWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
+- (CGSize)boundingSize:(CGSize)size font:(UIFont*)font;
+
+- (CGSize)boundingTextViewSize:(CGSize)size font:(UIFont*)font;
 
 @end

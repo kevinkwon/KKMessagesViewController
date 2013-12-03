@@ -37,23 +37,23 @@
     self.messageInputView.textView.placeHolder = @"Message";
     
     self.messages = [[NSMutableArray alloc] initWithObjects:
-                     @"JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다.JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다.",
-//                      @"It's highly customizable.",
-//                     @"It even has data detectors. You can call me tonight. My cell number is 452-123-4567. \nMy website is www.hexedbits.com.",
-//                     @"Group chat is possible. Sound effects and images included. Animations are smooth. Messages can be of arbitrary size!",
+                     @"JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다. JSMessagesViewController 한글이 지원되지 않는다. 그래서 수정한다.",
+                      @"It's highly customizable.",
+                     @"It even has data detectors. You can call me tonight. My cell number is 452-123-4567. \nMy website is www.hexedbits.com.",
+                     @"Group chat is possible. Sound effects and images included. Animations are smooth. Messages can be of arbitrary size!",
                      nil];
     
     self.timestamps = [[NSMutableArray alloc] initWithObjects:
-//                       [NSDate distantPast],
-//                       [NSDate distantPast],
-//                       [NSDate distantPast],
+                       [NSDate distantPast],
+                       [NSDate distantPast],
+                       [NSDate distantPast],
                        [NSDate date],
                        nil];
     
     self.subtitles = [[NSMutableArray alloc] initWithObjects:
                       kSubtitleJobs,
-//                      kSubtitleWoz,
-//                      kSubtitleJobs,
+                      kSubtitleWoz,
+                      kSubtitleJobs,
                       kSubtitleCook, nil];
     
     self.avatars = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -122,9 +122,12 @@
 
 - (UIButton *)buttonViewForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTitle:@"testbutton" forState:UIControlStateNormal];
-    return button;
+    if (indexPath.row == 1) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button setTitle:@"testbutton" forState:UIControlStateNormal];
+        return button;
+    }
+    return nil;
 }
 
 - (JSMessagesViewTimestampPolicy)timestampPolicy
@@ -139,8 +142,7 @@
 
 - (JSMessagesViewSubtitlePolicy)subtitlePolicy
 {
-//    return JSMessagesViewSubtitlePolicyNone;
-    return JSMessagesViewSubtitlePolicyAll;
+    return JSMessagesViewSubtitlePolicyNone;
 }
 
 #pragma mark - Messages view delegate: OPTIONAL
@@ -199,11 +201,6 @@
     return time;
 }
 
-- (NSString *)nameForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [self.subtitles objectAtIndex:indexPath.row];
-}
-
 - (UIImageView *)avatarImageViewForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *subtitle = [self.subtitles objectAtIndex:indexPath.row];
@@ -211,9 +208,14 @@
     return [[UIImageView alloc] initWithImage:image];
 }
 
+- (NSString *)nameForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.subtitles[indexPath.row];
+}
+
 - (NSString *)subtitleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return @"subtitle";
+    return nil;
 }
 
 @end

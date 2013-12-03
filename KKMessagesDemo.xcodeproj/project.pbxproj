@@ -22,7 +22,7 @@
 		9C575111183F463800CA6239 /* KKMessagesDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C575110183F463800CA6239 /* KKMessagesDemoTests.m */; };
 		9C57511C183F471000CA6239 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9C57511A183F471000CA6239 /* LICENSE */; };
 		9C57511D183F471000CA6239 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C57511B183F471000CA6239 /* README.md */; };
-		9C575121183F471600CA6239 /* NSString+KKMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C575120183F471600CA6239 /* NSString+KKMessageView.m */; };
+		9C575121183F471600CA6239 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C575120183F471600CA6239 /* NSString+Size.m */; };
 		9C575177183F471C00CA6239 /* NSString+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C575126183F471C00CA6239 /* NSString+JSMessagesView.m */; };
 		9C575178183F471C00CA6239 /* UIButton+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C575128183F471C00CA6239 /* UIButton+JSMessagesView.m */; };
 		9C575179183F471C00CA6239 /* UIColor+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C57512A183F471C00CA6239 /* UIColor+JSMessagesView.m */; };
@@ -115,8 +115,8 @@
 		9C575110183F463800CA6239 /* KKMessagesDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKMessagesDemoTests.m; sourceTree = "<group>"; };
 		9C57511A183F471000CA6239 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9C57511B183F471000CA6239 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		9C57511F183F471600CA6239 /* NSString+KKMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KKMessageView.h"; sourceTree = "<group>"; };
-		9C575120183F471600CA6239 /* NSString+KKMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KKMessageView.m"; sourceTree = "<group>"; };
+		9C57511F183F471600CA6239 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		9C575120183F471600CA6239 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
 		9C575125183F471C00CA6239 /* NSString+JSMessagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSMessagesView.h"; sourceTree = "<group>"; };
 		9C575126183F471C00CA6239 /* NSString+JSMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSMessagesView.m"; sourceTree = "<group>"; };
 		9C575127183F471C00CA6239 /* UIButton+JSMessagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+JSMessagesView.h"; sourceTree = "<group>"; };
@@ -301,8 +301,8 @@
 		9C57511E183F471600CA6239 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				9C57511F183F471600CA6239 /* NSString+KKMessageView.h */,
-				9C575120183F471600CA6239 /* NSString+KKMessageView.m */,
+				9C57511F183F471600CA6239 /* NSString+Size.h */,
+				9C575120183F471600CA6239 /* NSString+Size.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -635,7 +635,7 @@
 				9C5750F8183F463700CA6239 /* main.m in Sources */,
 				9C57517A183F471C00CA6239 /* UIImage+JSMessagesView.m in Sources */,
 				9C575182183F471C00CA6239 /* JSMessagesViewController.m in Sources */,
-				9C575121183F471600CA6239 /* NSString+KKMessageView.m in Sources */,
+				9C575121183F471600CA6239 /* NSString+Size.m in Sources */,
 				9C575181183F471C00CA6239 /* JSMessageSoundEffect.m in Sources */,
 				9C575177183F471C00CA6239 /* NSString+JSMessagesView.m in Sources */,
 				9C575178183F471C00CA6239 /* UIButton+JSMessagesView.m in Sources */,
@@ -715,7 +715,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -748,7 +748,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
