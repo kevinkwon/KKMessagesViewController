@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E10B9008-6C66-4267-8EAD-3ECBDE795401</string>
+	<string>96A5E7B2-773F-4ECA-B9C2-5007B83DB9F8</string>
 	<key>IDESourceControlProjectName</key>
 	<string>KKMessagesDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>https://github.com/kevinkwon/KKMessagesViewController.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>KKMessagesDemo/KKMessagesDemo.xcodeproj/project.xcworkspace</string>
+	<string>KKMessagesDemo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4A69B551-F085-4B1A-A769-BC13DB03F0E9</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kevinkwon/KKMessagesViewController.git</string>
