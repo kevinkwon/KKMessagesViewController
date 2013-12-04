@@ -10,13 +10,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JSMessagesViewController/Classes/JSBubbleMessageCell.m"
-            timestampString = "407765378.836993"
+            timestampString = "407818140.62121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-initWithBubbleType:bubbleImageView:hasTimestamp:hasAvatar:hasSubtitle:buttonView:reuseIdentifier:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JSMessagesViewController/Classes/JSBubbleView.m"
+            timestampString = "407817650.757006"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -19,6 +19,7 @@
 #import "NSString+JSMessagesView.h"
 #import "NSString+Size.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIColor+JSMessagesView.h"
 
 CGFloat const kMarginTop = 4.0f;
 CGFloat const kMarginBottom = 4.0f;
@@ -49,8 +50,6 @@ CGFloat const kKKPadding = 4.0f;
 - (void)setup
 {
     self.backgroundColor = [UIColor clearColor];
-    self.layer.borderColor = [[UIColor greenColor]CGColor];
-    self.layer.borderWidth = 1;
 }
 
 #pragma mark - Initialization
@@ -71,8 +70,6 @@ CGFloat const kKKPadding = 4.0f;
         bubbleImageView.userInteractionEnabled = YES;
         [self addSubview:bubbleImageView];
         _bubbleImageView = bubbleImageView;
-        _bubbleImageView.layer.borderColor = [[UIColor blueColor]CGColor];
-        _bubbleImageView.layer.borderWidth = 2;
         
         UILabel *textView = [[UILabel alloc] initWithFrame:CGRectZero];
         textView.font = [UIFont systemFontOfSize:16.0f];
@@ -90,6 +87,14 @@ CGFloat const kKKPadding = 4.0f;
             _button = buttonView;
         }
         
+        UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        timeLabel.textColor = [UIColor js_messagesTimestampColor_iOS6];
+        timeLabel.font = [UIFont systemFontOfSize:12.5f];
+        timeLabel.backgroundColor = [UIColor clearColor];
+        
+        [self addSubview:timeLabel];
+        _timeLabel = timeLabel;
+        
 //        NOTE: TODO: textView frame & text inset
 //        --------------------
 //        future implementation for textView frame
@@ -106,7 +111,6 @@ CGFloat const kKKPadding = 4.0f;
 {
     _bubbleImageView = nil;
     _textView = nil;
-    _timeLabel = nil;
 }
 
 #pragma mark - Setters
@@ -126,6 +130,7 @@ CGFloat const kKKPadding = 4.0f;
 - (void)setTime:(NSString *)time
 {
     self.timeLabel.text = time;
+    [self.timeLabel sizeToFit];
     [self setNeedsLayout];
 }
 
@@ -217,6 +222,22 @@ CGFloat const kKKPadding = 4.0f;
                                        self.bubbleImageView.frame.size.width - 30,
                                        kButtonHeight);
     }
+    
+    // 오른정렬
+    if (self.type == JSBubbleMessageTypeIncoming) {
+        self.timeLabel.frame = CGRectMake(CGRectGetMaxX(self.bubbleImageView.frame),
+                                          CGRectGetMaxY(self.bubbleImageView.frame) - CGRectGetHeight(self.timeLabel.frame),
+                                          CGRectGetWidth(self.timeLabel.frame),
+                                          CGRectGetHeight(self.timeLabel.frame));
+    }
+    // 왼쪽정렬
+    else {
+        self.timeLabel.frame = CGRectMake(CGRectGetMinX(self.bubbleImageView.frame) - CGRectGetWidth(self.timeLabel.frame),
+                                          CGRectGetMaxY(self.bubbleImageView.frame) - CGRectGetHeight(self.timeLabel.frame),
+                                          CGRectGetWidth(self.timeLabel.frame),
+                                          CGRectGetHeight(self.timeLabel.frame));
+    }
+
 }
 
 #pragma mark - Bubble view

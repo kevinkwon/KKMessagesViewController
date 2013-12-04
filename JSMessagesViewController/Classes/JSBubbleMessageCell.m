@@ -68,9 +68,6 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
                                                                                              action:@selector(handleLongPressGesture:)];
     [recognizer setMinimumPressDuration:0.4f];
     [self addGestureRecognizer:recognizer];
-    
-    self.layer.borderColor = [[UIColor lightGrayColor]CGColor];
-    self.layer.borderWidth = 1;
 }
 
 - (void)configureTimestampLabel
@@ -140,8 +137,6 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
     label.textAlignment = (type == JSBubbleMessageTypeOutgoing) ? NSTextAlignmentRight : NSTextAlignmentLeft;
     label.textColor = [UIColor js_messagesTimestampColor_iOS6];
     label.font = [UIFont systemFontOfSize:12.5f];
-    label.layer.borderColor = [[UIColor redColor]CGColor];
-    label.layer.borderWidth = 1;
     
     [self.contentView addSubview:label];
     _nameLabel = label;
@@ -162,8 +157,6 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
     
     [self.contentView addSubview:label];
     _subtitleLabel = label;
-    _subtitleLabel.layer.borderWidth = 1;
-    _subtitleLabel.layer.borderColor = [[UIColor redColor]CGColor];
 }
 
 - (void)configureWithType:(JSBubbleMessageType)type
