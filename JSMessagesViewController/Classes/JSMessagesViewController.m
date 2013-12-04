@@ -185,6 +185,10 @@
     [self.delegate didSendText:[self.messageInputView.textView.text js_stringByTrimingWhitespace]];
 }
 
+- (void)singleTapped {
+    [self.messageInputView resignFirstResponder];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -470,11 +474,16 @@
 
 - (void)handleWillShowKeyboardNotification:(NSNotification *)notification
 {
+    if (!_singleTab) {
+        _singleTab = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(singleTapped)];
+    }
+    [self.tableView addGestureRecognizer:_singleTab];
     [self keyboardWillShowHide:notification];
 }
 
 - (void)handleWillHideKeyboardNotification:(NSNotification *)notification
 {
+    [self.tableView removeGestureRecognizer:_singleTab];
     [self keyboardWillShowHide:notification];
 }
 

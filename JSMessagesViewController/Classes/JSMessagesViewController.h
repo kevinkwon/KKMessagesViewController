@@ -238,6 +238,9 @@ typedef NS_ENUM(NSUInteger, JSMessagesViewSubtitlePolicy) {
  *  An instance of `JSMessagesViewController` is a subclass of `UIViewController` specialized to display a messaging interface.
  */
 @interface JSMessagesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
+{
+    UITapGestureRecognizer *_singleTab;
+}
 
 /**
  *  The object that acts as the delegate of the receiving messages view.
