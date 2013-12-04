@@ -31,6 +31,7 @@
                       hasTimestamp:(BOOL)hasTimestamp
                          hasAvatar:(BOOL)hasAvatar
                        hasSubtitle:(BOOL)hasSubtitle
+                           hasName:(BOOL)hasName
                         buttonView:(UIButton *)buttonView
                    reuseIdentifier:(NSString *)reuseIdentifier;
 

@@ -32,6 +32,7 @@
 - (BOOL)shouldHaveTimestampForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)shouldHaveAvatarForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)shouldHaveSubtitleForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)shouldHaveNameForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (BOOL)shouldAllowScroll;
 
@@ -210,8 +211,9 @@
     BOOL hasTimestamp = [self shouldHaveTimestampForRowAtIndexPath:indexPath];
     BOOL hasAvatar = [self shouldHaveAvatarForRowAtIndexPath:indexPath];
 	BOOL hasSubtitle = [self shouldHaveSubtitleForRowAtIndexPath:indexPath];
+    BOOL hasName = [self shouldHaveNameForRowAtIndexPath:indexPath];
     
-    NSString *CellIdentifier = [NSString stringWithFormat:@"MessageCell_%d_%d_%d_%d", type, hasTimestamp, hasAvatar, hasSubtitle];
+    NSString *CellIdentifier = [NSString stringWithFormat:@"MessageCell_%d_%d_%d_%d_&d", type, hasTimestamp, hasAvatar, hasSubtitle, hasName];
     JSBubbleMessageCell *cell = (JSBubbleMessageCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(!cell) {
@@ -220,6 +222,7 @@
                                                   hasTimestamp:hasTimestamp
                                                      hasAvatar:hasAvatar
                                                    hasSubtitle:hasSubtitle
+                                                       hasName:hasName
                                                     buttonView:buttonView
                                                reuseIdentifier:CellIdentifier];
     }
@@ -314,6 +317,24 @@
             return [self.delegate messageTypeForRowAtIndexPath:indexPath] == JSBubbleMessageTypeOutgoing;
             
         case JSMessagesViewSubtitlePolicyNone:
+        default:
+            return NO;
+    }
+}
+
+- (BOOL)shouldHaveNameForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch ([self.delegate namePolicy]) {
+        case JSMessagesViewNamePolicyAll:
+            return YES;
+            
+        case JSMessagesViewNamePolicyIncomingOnly:
+            return [self.delegate messageTypeForRowAtIndexPath:indexPath] == JSBubbleMessageTypeIncoming;
+            
+        case JSMessagesViewNamePolicyOutgoingOnly:
+            return [self.delegate messageTypeForRowAtIndexPath:indexPath] == JSBubbleMessageTypeOutgoing;
+            
+        case JSMessagesViewNamePolicyNone:
         default:
             return NO;
     }

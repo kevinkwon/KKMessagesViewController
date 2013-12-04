@@ -137,12 +137,17 @@
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
 {
-    return JSMessagesViewAvatarPolicyAll;
+    return JSMessagesViewAvatarPolicyIncomingOnly;
 }
 
 - (JSMessagesViewSubtitlePolicy)subtitlePolicy
 {
     return JSMessagesViewSubtitlePolicyNone;
+}
+
+- (JSMessagesViewNamePolicy)namePolicy
+{
+    return JSMessagesViewNamePolicyIncomingOnly;
 }
 
 #pragma mark - Messages view delegate: OPTIONAL

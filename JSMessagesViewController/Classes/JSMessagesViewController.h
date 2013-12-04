@@ -89,6 +89,28 @@ typedef NS_ENUM(NSUInteger, JSMessagesViewSubtitlePolicy) {
 };
 
 /**
+ *  The method by which subtitles are displayed in the messages table view.
+ */
+typedef NS_ENUM(NSUInteger, JSMessagesViewNamePolicy) {
+    /**
+     *  Displays a subtitle for all incoming and all outgoing messages.
+     */
+    JSMessagesViewNamePolicyAll,
+    /**
+     *  Displays a subtitle for incoming messages only.
+     */
+    JSMessagesViewNamePolicyIncomingOnly,
+    /**
+     *  Displays a subtitle for outgoing messages only.
+     */
+    JSMessagesViewNamePolicyOutgoingOnly,
+    /**
+     *  Does not display any subtitles.
+     */
+    JSMessagesViewNamePolicyNone
+};
+
+/**
  *  The delegate of a `JSMessagesViewController` must adopt the `JSMessagesViewDelegate` protocol.
  */
 @protocol JSMessagesViewDelegate <NSObject>
@@ -149,6 +171,8 @@ typedef NS_ENUM(NSUInteger, JSMessagesViewSubtitlePolicy) {
  *  @see JSMessagesViewSubtitlePolicy.
  */
 - (JSMessagesViewSubtitlePolicy)subtitlePolicy;
+
+- (JSMessagesViewNamePolicy)namePolicy;
 
 @optional
 

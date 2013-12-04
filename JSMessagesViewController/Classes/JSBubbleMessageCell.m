@@ -36,6 +36,7 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
                 timestamp:(BOOL)hasTimestamp
                    avatar:(BOOL)hasAvatar
 				 subtitle:(BOOL)hasSubtitle
+                     name:(BOOL)hasName
                buttonView:(UIButton *)buttonView;
 
 - (void)handleLongPressGesture:(UILongPressGestureRecognizer *)longPress;
@@ -164,6 +165,7 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
                 timestamp:(BOOL)hasTimestamp
                    avatar:(BOOL)hasAvatar
 				 subtitle:(BOOL)hasSubtitle
+                     name:(BOOL)hasName
                buttonView:(UIButton *)buttonView
 {
     _type = type;
@@ -182,8 +184,10 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
         [self configureAvatarImageView:[[UIImageView alloc] init] forMessageType:type];
     }
     
-    // 이름은 무조건 들어감
-    [self configureNameLabelForMessageType:type];
+    if (hasName) {
+        // 이름은 무조건 들어감
+        [self configureNameLabelForMessageType:type];
+    }
     
     JSBubbleView *bubbleView = [[JSBubbleView alloc] initWithFrame:CGRectZero
                                                         bubbleType:type
@@ -201,6 +205,7 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
                       hasTimestamp:(BOOL)hasTimestamp
                          hasAvatar:(BOOL)hasAvatar
                        hasSubtitle:(BOOL)hasSubtitle
+                           hasName:(BOOL)hasName
                         buttonView:(UIButton *)buttonView
                    reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -213,6 +218,7 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
                       timestamp:hasTimestamp
                          avatar:hasAvatar
                        subtitle:hasSubtitle
+                           name:hasName
                      buttonView:buttonView];
     }
     return self;
@@ -282,7 +288,7 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
 - (CGFloat)height
 {
     CGFloat timestampHeight = (self.timestampLabel) ? kJSTimeStampLabelHeight : 0.0f;
-    CGFloat nameHeight = self.nameLabel ? CGRectGetHeight(self.nameLabel.frame) : 0.0f;
+    CGFloat nameHeight = self.nameLabel ? kJSNameLabelHeight : 0.0f;
     CGFloat avatarHeight = (self.avatarImageView) ? kJSAvatarImageSize : 0.0f;
 
     CGFloat subviewHeights = kJSLabelPadding + timestampHeight ;
@@ -303,8 +309,12 @@ CGFloat const kJSSubtitleLabelHeight = 15.0f;
     
     CGFloat offsetX = 0.0f;
     
-    
-    bubbleY += CGRectGetMaxY(self.nameLabel.frame);
+    if (self.timestampLabel) {
+        bubbleY = CGRectGetMaxY(self.timestampLabel.frame);
+    }
+    if (self.nameLabel) {
+        bubbleY = CGRectGetMaxY(self.nameLabel.frame);
+    }
     
     if (self.avatarImageView) {
         offsetX = 4.0f;
